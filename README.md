@@ -20,11 +20,23 @@ Main section where "travelers" can blog/submit photos and interact.
 
 ![Imgur](https://i.imgur.com/wBCSUtg.jpg)
 
+## Blog - Show
+
+![Imgur](https://i.imgur.com/bx80ks4.jpg)
+
+## Add New
+
+![Imgur](https://i.imgur.com/i1K6VAY.jpg)
+
+## Edit and Update
+
+![Imgur](https://i.imgur.com/0lv9BRU.jpg)
+
 ### User(Traveler) Information
 
 Traveler show page where all information about the user can be found.
 
-![Imgur](https://i.imgur.com/pe9n3bt.jpg)
+![Imgur](https://i.imgur.com/ZFkftMq.jpg)
 
 ## Models
 
