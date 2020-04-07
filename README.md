@@ -26,6 +26,50 @@ Traveler show page where all information about the user can be found.
 
 ![Imgur](https://i.imgur.com/pe9n3bt.jpg)
 
+## Models
+
+```const travelerSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  firstName: String,
+  lastName: String,
+  age: Number,
+  hometown: String,
+  outOfCountry: boolean,
+  placesVisited: Number,
+  posts: Number,
+  email: String
+  profilePic: 
+})
+const destinationSchema = new mongoose.Schema({
+  city: String,
+  country: String,
+  date: Date,
+  traveler: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Traveler',
+    required: true 
+  },
+  comments: [Comment.schema]
+})
+const commentSchema = new mongoose.Schema({
+  text: String,
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
+})```
+
 ## User Story
 
 - You can navigate via links.
