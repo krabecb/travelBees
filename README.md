@@ -51,18 +51,17 @@ Traveler show page where all information about the user can be found.
   },
   firstName: String,
   lastName: String,
-  age: Number,
+  dateOfBirth: Date,
   hometown: String,
-  outOfCountry: boolean,
-  placesVisited: Number,
-  posts: Number,
-  email: String
-  profilePic: 
+  email: String,
+  profilePic: String
 })
-const destinationSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
   city: String,
   country: String,
   date: Date,
+  postDescription: String,
+  postPicture: String,
   traveler: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Traveler',
@@ -76,11 +75,11 @@ const commentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  user: {
+  traveler: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'Traveler'
   }
-}) 
+})
 ```
 
 ## User Story
