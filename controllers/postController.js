@@ -72,5 +72,18 @@ router.post('/:id', async (req, res, next) => {
 	} 
 })
 
+// EDIT -- GET
+router.get('/:id/edit', async (req, res, next) => {
+	try {
+		const foundPost = await Post.findById(req.params.id)
+		res.render('posts/edit.ejs', {
+			post: foundPost
+		})
+	} catch(err) {
+		next(err)
+	}
+})
+
+
 
 module.exports = router
