@@ -6,6 +6,14 @@ const PORT = process.env.PORT
 //MIDDLEWARE
 server.use(express.static('public'))
 
+//CONTROLLERS
+
+
+//ROUTES
+server.get('/', (req, res) => {
+	res.render('home.ejs')
+})
+
 
 
 server.listen(PORT, () => {
