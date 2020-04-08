@@ -17,6 +17,11 @@ router.get('/', async (req, res, next) => {
 	}
 })
 
-
+//NEW -- !!!ADD LIB AND REQUIREAUTH!!!
+router.get('/new', (req, res) => {
+	res.render('posts/new.ejs', {
+		userId: req.session.userId
+	})
+})
 
 module.exports = router
