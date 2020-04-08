@@ -19,6 +19,8 @@ server.use(session({
 //CONTROLLERS
 const authController = require('./controllers/authController')
 server.use('/auth', authController)
+const postController = require('./controllers/postController')
+server.use('/posts', postController)
 
 //ROUTES
 server.get('/', (req, res) => {
