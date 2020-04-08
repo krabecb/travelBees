@@ -2,6 +2,9 @@
 
 	<h3>Show Page for <%= post.title %></h3>
 
+	<form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+    	<button>Delete <%= post.title %></button>
+  	</form>
 
 
 <%- include('../partials/footer.ejs') %>

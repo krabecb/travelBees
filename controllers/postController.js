@@ -62,4 +62,15 @@ router.post('/', async (req, res, next) => {
 	}
 })
 
+// DELETE
+router.post('/:id', async (req, res, next) => {
+	try {
+		await Post.findByIdAndRemove(req.params.id)
+		res.redirect('/posts')
+	} catch(err) {
+		next(err)
+	} 
+})
+
+
 module.exports = router
