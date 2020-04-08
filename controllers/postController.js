@@ -24,4 +24,27 @@ router.get('/new', (req, res) => {
 	})
 })
 
+//NEW -- POST
+router.post('/', async (req, res, next) => {
+	try {
+		const postToCreate = {
+			title: req.body.title,
+			city: req.body.city,
+			country: req.body.country,
+			postDescription: req.body.description,
+			postPicture: req.body.postPicture,
+			user: req.session.userId
+		}
+		console.log('Here is req.session:')
+		console.log(req.session)
+
+		const createdPost = await Post.create(postToCreate)
+		req.session.message = `${createdPost.title} successfully added!`
+		res.redirect('/posts') //Maybe later redcirect to show?? 
+
+	} catch(error) {
+		next(error)
+	}
+})
+
 module.exports = router

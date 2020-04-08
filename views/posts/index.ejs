@@ -2,4 +2,15 @@
 
 	<h3>Post Index</h3>
 
+	<ul>
+    <% posts.forEach((post) => { %>
+      <li>
+        <a href="/posts/<%= post.id %>"><%= post.title %></a>
+        <p>
+        	<img src="<%= post.postPicture %>">
+        </p>
+      </li>
+    <% }) %>    
+  </ul>
+
 <%- include('../partials/footer.ejs') %>

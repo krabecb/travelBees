@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 
 
 const postSchema = new mongoose.Schema({
+  title: String,
   city: String,
   country: String,
   date: Date,
   postDescription: String,
   postPicture: String,
-  traveler: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true 
