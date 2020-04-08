@@ -24,6 +24,21 @@ router.get('/new', (req, res) => {
 	})
 })
 
+//SHOW -- GET
+router.get('/:id', async (req, res, next) => {
+	try {
+		const foundPost = await Post.findById(req.params.id).populate('user')
+		console.log(foundPost);
+		res.render('posts/show.ejs', {
+			post: foundPost,
+			user: req.session.userId
+		})	
+	} catch(err) {
+		next(err)
+	}
+})
+
+
 //NEW -- POST
 router.post('/', async (req, res, next) => {
 	try {
