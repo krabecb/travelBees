@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
-//ROUTES
+// REGISTRATION ROUTES
 
 // registration form
 router.get('/register', (req, res) => {
@@ -42,6 +42,45 @@ router.post('/register', async (req, res, next) => {
 	} catch(err) {
 		next(err)
 	}
+})
+
+// LOGIN ROUTES 
+
+// show form GET /auth/login
+router.get('/login', (req, res) => {
+	res.render('auth/login.ejs')
+})
+
+// login POST /auth/login
+router.post('/login', async (req, res, next) => {
+  
+  try {
+    const user = await User.findOne({ username: req.body.username })
+
+    if(!user) {
+      console.log("bad username");
+      req.session.message = "Invalid username or password."
+      res.redirect('/auth/login')
+    
+    } else {
+
+      const loginInfoIsValid = bcrypt.compareSync(req.body.password, user.password)
+      if(loginInfoIsValid) {
+        req.session.loggedIn = true
+        req.session.userId = user._id
+        req.session.username = user.username
+        req.session.message = `Welcome back, ${user.username}!`
+        res.redirect('/')
+
+      } else {
+        console.log("bad password");
+        req.session.message = "Invalid username or password."
+        res.redirect('/auth/login')
+      }
+    }
+  } catch(err) {
+    next(err)
+  }
 })
 
 module.exports = router
