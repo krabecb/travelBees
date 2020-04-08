@@ -17,6 +17,11 @@ server.get('/', (req, res) => {
 	res.render('home.ejs')
 })
 
+//404
+server.get('*', (req, res) => {
+	res.status(404).render('404.ejs')
+})
+
 
 
 server.listen(PORT, () => {

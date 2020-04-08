@@ -1,0 +1,6 @@
+body {
+	background-color: lavender;
+	background-image: linear-gradient(lavender, purple);
+	height: 800px;
+	overflow: hidden;
+}
