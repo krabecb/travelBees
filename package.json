@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/krabecb/SEI-Project-2#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }
