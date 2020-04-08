@@ -62,8 +62,23 @@ router.post('/', async (req, res, next) => {
 	}
 })
 
+// UPDATE -- PUT
+router.put('/:id', async (req, res, next) => {
+	try {
+		const updatedPost = await Post.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{new: true}
+			)
+		console.log('it suppose to update');
+		res.redirect(`/posts/${updatedPost._id}`)
+	} catch(err) {
+		next(err)
+	}
+}) 
+
 // DELETE
-router.post('/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
 	try {
 		await Post.findByIdAndRemove(req.params.id)
 		res.redirect('/posts')
@@ -83,6 +98,7 @@ router.get('/:id/edit', async (req, res, next) => {
 		next(err)
 	}
 })
+
 
 
 

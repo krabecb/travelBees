@@ -3,6 +3,7 @@ const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const methodOverride = require('method-override')
 const PORT = process.env.PORT
 
 //DATABASE
@@ -16,6 +17,8 @@ server.use(session({
 	resave: false,
 	saveUninitialized: false
 }))
+server.use(methodOverride('_method'))
+
 //CONTROLLERS
 const authController = require('./controllers/authController')
 server.use('/auth', authController)
