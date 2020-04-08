@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const server = express()
+const bodyParser = require('body-parser')
+const session = require('express-session')
 const PORT = process.env.PORT
 
 //DATABASE
@@ -8,7 +10,12 @@ require('./db/db')
 
 //MIDDLEWARE
 server.use(express.static('public'))
-
+server.use(bodyParser.urlencoded({ extended: false}))
+server.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: false
+}))
 //CONTROLLERS
 const authController = require('./controllers/authController')
 server.use('/auth', authController)
