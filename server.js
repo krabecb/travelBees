@@ -10,7 +10,8 @@ require('./db/db')
 server.use(express.static('public'))
 
 //CONTROLLERS
-
+const authController = require('./controllers/authController')
+server.use('/auth', authController)
 
 //ROUTES
 server.get('/', (req, res) => {
