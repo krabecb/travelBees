@@ -6,7 +6,10 @@ const postSchema = new mongoose.Schema({
   title: String,
   city: String,
   country: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.now
+  },
   postDescription: String,
   postPicture: String,
   user: {

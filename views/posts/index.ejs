@@ -8,7 +8,9 @@
         <a href="/posts/<%= post.id %>"><%= post.title %></a>
         <p id="description"><%= post.city %>,
         <%= post.country %>
-        <%= post.description %></p>
+        <%= post.description %>
+        <%= post.date %>  
+        </p>
         <img src="<%= post.postPicture %>">
         </br>Posted by: <%= post.user.username %>
       </li>
