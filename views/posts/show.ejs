@@ -8,6 +8,17 @@
 	<img src="<%= post.postPicture %>">
 	<p>Post created by: <%= post.user.username %></p>
 
+	<% if(post.user.username) { %>
+
+	<form method="POST" action="/comments/<%= post.id %>">
+	    <textarea name="text" placeholder="What do you think about <%= post.name %>?"></textarea>
+	    <br />
+	    <button>Add Comment</button>
+	</form>
+
+
+  <% } %>
+
  	 <div>
     	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>
   	</div>
