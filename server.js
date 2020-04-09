@@ -26,6 +26,10 @@ server.use((req, res, next) => {
 	res.locals.loggedIn = req.session.loggedIn
 	res.locals.username = req.session.username
 	res.locals.userId = req.session.userId
+	//flash messaging
+	res.locals.message = req.session.message
+	//clears out so it only appears once
+	req.session.message = undefined
 	next()
 })
 
