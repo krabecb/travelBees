@@ -25,10 +25,10 @@
 	    <br />
 	    <button>Add Comment</button>
 	</form>
-  <% } %>
+ 	<% } %>
 
 
-
+ 	<% if(user == post.user.username) { %>
  	 <div>
     	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>
   	</div>
@@ -36,6 +36,7 @@
 	<form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
     	<button>Delete <%= post.title %></button>
   	</form>
+  	<% } %>
 
 
 <%- include('../partials/footer.ejs') %>

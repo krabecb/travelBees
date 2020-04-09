@@ -28,10 +28,11 @@ router.get('/new', (req, res) => {
 router.get('/:id', async (req, res, next) => {
 	try {
 		const foundPost = await Post.findById(req.params.id).populate('user')
-		console.log(foundPost);
+		console.log(foundPost)
+		console.log(foundPost.user.username)
 		res.render('posts/show.ejs', {
 			post: foundPost,
-			user: req.session.userId
+			user: req.session.username
 		})	
 	} catch(err) {
 		next(err)
@@ -90,9 +91,10 @@ router.delete('/:id', async (req, res, next) => {
 // EDIT -- GET
 router.get('/:id/edit', async (req, res, next) => {
 	try {
-		const foundPost = await Post.findById(req.params.id)
+		const foundPost = await Post.findById(req.params.id).populate('user')
+		req.session.userId == foundPost.user._id
 		res.render('posts/edit.ejs', {
-			post: foundPost
+			post: foundPost,
 		})
 	} catch(err) {
 		next(err)
