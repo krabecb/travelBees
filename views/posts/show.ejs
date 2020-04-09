@@ -2,6 +2,12 @@
 
 	<h3>Show Page for <%= post.title %></h3>
 
+	<p>Location: <%= post.city %>,
+	<%= post.country %></p>
+	<p>Description: <%= post.postDescription %></p>
+	<img src="<%= post.postPicture %>">
+	<p>Post created by: <%= post.user.username %></p>
+
  	 <div>
     	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>
   	</div>

@@ -12,12 +12,20 @@ require('./db/db')
 //MIDDLEWARE
 server.use(express.static('public'))
 server.use(bodyParser.urlencoded({ extended: false}))
+server.use(methodOverride('_method'))
+
+//SESSIONS
 server.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false
 }))
-server.use(methodOverride('_method'))
+server.use((req, res, next) => {
+	console.log("Here is the session in the custom app-level middleware.")
+	console.log(req.session)
+	res.locals.loggedIn = req.session.loggedIn
+	next()
+})
 
 //CONTROLLERS
 const authController = require('./controllers/authController')

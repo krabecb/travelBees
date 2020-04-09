@@ -2,13 +2,15 @@
 
 	<h3>Post Index</h3>
 
-	<ul>
+	<ul id="posts">
     <% posts.forEach((post) => { %>
       <li>
         <a href="/posts/<%= post.id %>"><%= post.title %></a>
-        <p>
-        	<img src="<%= post.postPicture %>">
-        </p>
+        <p id="description"><%= post.city %>,
+        <%= post.country %>
+        <%= post.description %></p>
+        <img src="<%= post.postPicture %>">
+        </br>Posted by: <%= post.user.username %>
       </li>
     <% }) %>    
   </ul>

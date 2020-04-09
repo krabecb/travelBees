@@ -1,6 +1,35 @@
 body {
 	background-color: lavender;
-	background-image: linear-gradient(lavender, purple);
+	/*background-image: linear-gradient(lavender, purple);
 	height: 800px;
-	overflow: hidden;
+	overflow: scroll;*/
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+}
+
+img {
+	height: 300px;
+	width: 450px;
+}
+
+nav {
+	height: min-content;
+}
+
+h3 {
+	height: min-content;
+}
+
+ul {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+#posts li {
+	list-style-type: none;
+	margin-bottom: 15px;
 }
