@@ -23,11 +23,17 @@ h3 {
 	height: min-content;
 }
 
-ul {
+#comments li {
+	display: flex;
+	flex-direction: column;
+}
+
+#posts  {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 }
+
 
 #posts li {
 	list-style-type: none;

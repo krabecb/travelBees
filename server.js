@@ -24,6 +24,8 @@ server.use((req, res, next) => {
 	console.log("Here is the session in the custom app-level middleware.")
 	console.log(req.session)
 	res.locals.loggedIn = req.session.loggedIn
+	res.locals.username = req.session.username
+	res.locals.userId = req.session.userId
 	next()
 })
 
@@ -32,6 +34,8 @@ const authController = require('./controllers/authController')
 server.use('/auth', authController)
 const postController = require('./controllers/postController')
 server.use('/posts', postController)
+const commentController = require('./controllers/commentController')
+server.use('/comments', commentController)
 
 //ROUTES
 server.get('/', (req, res) => {

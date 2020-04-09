@@ -8,16 +8,26 @@
 	<img src="<%= post.postPicture %>">
 	<p>Post created by: <%= post.user.username %></p>
 
-	<% if(post.user.username) { %>
+  <ul id="comments">
+    <% post.comments.forEach((comment) => { %>
+      <li>
+        <%= comment.text %>
+        <br />
+        <small>(<%= comment.date.toLocaleString() %>) by <%= post.user.username %> </small>
+      </li>
+    <% }) %>
+  </ul>
+
+	<% if(username) { %>
 
 	<form method="POST" action="/comments/<%= post.id %>">
-	    <textarea name="text" placeholder="What do you think about <%= post.name %>?"></textarea>
+	    <textarea name="text" placeholder="What do you think about <%= post.title %>?"></textarea>
 	    <br />
 	    <button>Add Comment</button>
 	</form>
-
-
   <% } %>
+
+
 
  	 <div>
     	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>

@@ -1,13 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const Post = require('../models/post')
+const Comment = require('../models/comment')
 
 router.post('/:postId', async (req, res, next) => {
 	try {
 	const post = await Post.findById(req.params.postId)
 	const commentToCreate = {
 		text: req.body.text,
-		user: req.sesion.userId
+		userId: res.locals.userId
 	}
 	post.comments.push(commentToCreate)
 
