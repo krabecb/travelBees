@@ -40,6 +40,8 @@ const postController = require('./controllers/postController')
 server.use('/posts', postController)
 const commentController = require('./controllers/commentController')
 server.use('/comments', commentController)
+const userController = require('./controllers/userController')
+server.use('/user', userController)
 
 //ROUTES
 server.get('/', (req, res) => {
