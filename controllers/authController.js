@@ -16,6 +16,11 @@ router.post('/register', async (req, res, next) => {
 		console.log(req.body);
 		const desiredUsername = req.body.username
     	const desiredPassword = req.body.password
+      const desiredFirstName = req.body.firstname
+      const desiredLastName = req.body.lastname
+      const desiredDate = req.body.date
+      const desiredHometown = req.body.hometown
+      const desiredEmail = req.body.email
     	const userWithThisUsername = await User.findOne({
       		username: desiredUsername
     	})
@@ -29,7 +34,12 @@ router.post('/register', async (req, res, next) => {
       		const hashedPassword = bcrypt.hashSync(desiredPassword, salt)
      		const createdUser = await User.create({
         		username: desiredUsername,
-        		password: hashedPassword
+        		password: hashedPassword,
+            firstName: desiredFirstName,
+            lastName: desiredLastName,
+            dateOfBirth: desiredDate,
+            hometown: desiredHometown,
+            email: desiredEmail
       		})
       	req.session.loggedIn = true
   
