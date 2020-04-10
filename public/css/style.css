@@ -1,13 +1,23 @@
 body {
+	display: flex;
+	flex-direction: column;
 	background-color: lavender;
-	/*background-image: linear-gradient(lavender, purple);
-	height: 800px;
-	overflow: scroll;*/
+	font-family: 'Playfair Display', serif;
 }
 
 header {
 	display: flex;
 	justify-content: space-around;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 0;
+}
+
+footer {
+	text-align: center;
 }
 
 img {
@@ -21,6 +31,10 @@ nav {
 
 h3 {
 	height: min-content;
+}
+
+p {
+	font-family: 'Lato', sans-serif;
 }
 
 #comments li {
