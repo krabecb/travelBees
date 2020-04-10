@@ -45,6 +45,11 @@ router.post('/register', async (req, res, next) => {
   
   		req.session.userId = createdUser._id 
  	    req.session.username = createdUser.username
+      req.session.firstName = createdUser.firstName
+      req.session.lastName = createdUser.lastName
+      req.session.dateOfBirth = createdUser.dateOfBirth
+      req.session.hometown = createdUser.hometown
+      req.session.email = createdUser.email
       	req.session.message = `Thanks for signing up, ${createdUser.username}`
       	res.redirect('/')
 	   }
@@ -80,6 +85,11 @@ router.post('/login', async (req, res, next) => {
         req.session.loggedIn = true
         req.session.userId = user._id
         req.session.username = user.username
+        req.session.firstName = user.firstName
+        req.session.lastName = user.lastName
+        req.session.dateOfBirth = user.dateOfBirth
+        req.session.hometown = user.hometown
+        req.session.email = user.email
         req.session.message = `Welcome back, ${user.username}!`
         res.redirect('/')
 
