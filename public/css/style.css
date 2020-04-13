@@ -84,3 +84,8 @@ p {
 	list-style-type: none;
 	margin-bottom: 15px;
 }
+
+/*#about {
+	display: flex;
+	flex-direction: column;
+}*/

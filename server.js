@@ -47,6 +47,9 @@ server.use('/user', userController)
 server.get('/', (req, res) => {
 	res.render('home.ejs')
 })
+server.get('/about', (req, res) => {
+	res.render('about.ejs')
+})
 
 //404
 server.get('*', (req, res) => {
