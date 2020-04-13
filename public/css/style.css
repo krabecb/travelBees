@@ -12,12 +12,17 @@ header {
 
 main {
 	display: flex;
-	flex-direction: row;
 	flex-grow: 0;
 }
 
 footer {
 	text-align: center;
+}
+
+#background {
+	object-fit: : cover;
+	height: 100%;
+	width: 100%
 }
 
 img {
