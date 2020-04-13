@@ -85,7 +85,11 @@ p {
 	margin-bottom: 15px;
 }
 
-/*#about {
+#about {
 	display: flex;
-	flex-direction: column;
-}*/
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+
+}
