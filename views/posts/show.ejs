@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
+  <div id="show">
+
 	<h3>Show Page for <%= post.title %></h3>
 
 	<p>Location: <%= post.city %>,
@@ -37,6 +39,8 @@
     	<button>Delete <%= post.title %></button>
   	</form>
   	<% } %>
+
+  </div>
 
 
 <%- include('../partials/footer.ejs') %>

@@ -1,8 +1,21 @@
-body {
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body.general {
 	display: flex;
 	flex-direction: column;
-	background-color: lavender;
+	background: url(https://i.imgur.com/my8Vqo9.jpg);
+	background-size: cover;
+	background-color: rgba(0, 0, 0, 0);
 	font-family: 'Playfair Display', serif;
+}
+
+body.post-index {
+	background: url(https://i.imgur.com/UhLm41F.jpg);
+	background-size: cover;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 header {
@@ -13,16 +26,11 @@ header {
 main {
 	display: flex;
 	flex-grow: 0;
+	min-height: 92vh;
 }
 
 footer {
 	text-align: center;
-}
-
-#background {
-	object-fit: : cover;
-	height: 100%;
-	width: 100%
 }
 
 img {
@@ -40,6 +48,24 @@ h3 {
 
 p {
 	font-family: 'Lato', sans-serif;
+}
+
+#post-index {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, .5);
+}
+
+#show {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, .5);
+}
+
+#user-show {
+	display:flex;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, .5);
 }
 
 #comments li {
