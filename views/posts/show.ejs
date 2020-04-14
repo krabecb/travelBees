@@ -1,46 +1,61 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerPostIndex.ejs') %>
 
-  <div id="show">
+  <div id="show-container">
 
-	<h3>Show Page for <%= post.title %></h3>
+    <div id="show">
 
-	<p>Location: <%= post.city %>,
-	<%= post.country %></p>
-	<p>Description: <%= post.postDescription %></p>
-	<img src="<%= post.postPicture %>">
-	<p>Post created by: <%= post.user.username %></p>
+    	<p>📍: <%= post.city %>,
+    	<%= post.country %></p>
+    	<p><%= post.postDescription %></p>
+    	<img src="<%= post.postPicture %>">
+    	<p>Post created by: <%= post.user.username %></p>
 
-  <ul id="comments">
-    <% post.comments.forEach((comment) => { %>
-      <li>
-        <%= comment.text %>
-        <br />
-        <small>(<%= comment.date.toLocaleString() %>) by <%= comment.username %> </small>
-      </li>
-    <% }) %>
-  </ul>
+    </div>
 
-	<% if(username) { %>
+    <div id="show-comments">
 
-	<form method="POST" action="/comments/<%= post.id %>">
-	    <textarea name="text" placeholder="What do you think about <%= post.title %>?"></textarea>
-	    <br />
-	    <button>Add Comment</button>
-	</form>
- 	<% } %>
+      <ul id="comments">
+        <% post.comments.forEach((comment) => { %>
+          <div id="comment-bubble">
+            <li>
+              <%= comment.text %>
+              <br />
+              <small>(<%= comment.date.toLocaleString() %>) by <%= comment.username %> </small>
+            </li>
+          </div>
+        <% }) %>
+      </ul>
 
+    </div>
 
- 	<% if(user == post.user.username) { %>
- 	 <div>
-    	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>
-  	</div>
+    <div id="show-add-comment">
 
-	<form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
-    	<button>Delete <%= post.title %></button>
-  	</form>
-  	<% } %>
+  	<% if(username) { %>
+
+    	<form method="POST" action="/comments/<%= post.id %>">
+    	    <textarea name="text" placeholder="What do you think about <%= post.title %>?"></textarea>
+    	    <br />
+    	    <button>Add Comment</button>
+    	</form>
+
+   	<% } %>
+
+   </div>
+
+   <div id="show-admin">
+
+     	<% if(user == post.user.username) { %>
+     	 <div>
+        	<a href="/posts/<%= post.id %>/edit">(Edit <%= post.title %>)</a>
+      	</div>
+
+    	<form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+        	<button>Delete <%= post.title %></button>
+      	</form>
+      	<% } %>
+
+    </div>
 
   </div>
-
 
 <%- include('../partials/footer.ejs') %>

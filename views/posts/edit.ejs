@@ -1,57 +1,67 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerNew.ejs') %>
 
-	<h3>Edit Show Page</h3>
+  <div id="edit-container">
+  
+    <div>
+  	 <h3>Forgot Something? That's Okay, It Happens</h3>
+    </div>
 
-		<form method="POST" action="/posts/<%= post.id%>?_method=PUT">
-    <fieldset>
-      <legend>Enter a new post here</legend>
-      <div>
-        <label for="title">Title:</label>
-        <input 
-        	type="text" 
-        	name="title" 
-        	id="title" 
-        	placeholder="Enter title name"
-        	value="<%= post.title %> "/>
-      </div>
-      <div>
-        <label for="city">City:</label>
-        <input 
-        	type="text" 
-        	name="city" 
-        	id="city" 
-        	placeholder="Enter city name" 
-        	value="<%= post.city %>"/>
-      </div>
-      <div>
-        <label for="country">Country:</label>
-        <input 
-        	type="text" 
-        	name="country" 
-        	id="country" 
-        	placeholder="Enter country name" 
-        	value="<%= post.country %>"/>
-      </div>
-      <div>
-        <label for="description">Description:</label>
-        <input 
-        	type="textarea" 
-        	name="postDescription" 
-        	id="postDescription" 
-        	placeholder="Enter description" 
-        	value="<%= post.postDescription %>"/>
-      </div>
-      <div>
-      	<label for="postPicture">Image:</label>
-		<input 
-			id="postPicture" 
-			type="text" 
-			name="postPicture" 
-			placeholder="Enter image for new post"
-			value="<% post.postPicture %>">
-      </div>
-      <button>Update Post</button>
-    </fieldset>
-  </form>
+    <div>
+
+    	<form method="POST" action="/posts/<%= post.id%>?_method=PUT">
+        <fieldset>
+          <legend>Update details</legend>
+          <div>
+            <label for="title">Title:</label>
+            <input 
+            	type="text" 
+            	name="title" 
+            	id="title" 
+            	placeholder="Enter title name"
+            	value="<%= post.title %> "/>
+          </div>
+          <div>
+            <label for="city">City:</label>
+            <input 
+            	type="text" 
+            	name="city" 
+            	id="city" 
+            	placeholder="Enter city name" 
+            	value="<%= post.city %>"/>
+          </div>
+          <div>
+            <label for="country">Country:</label>
+            <input 
+            	type="text" 
+            	name="country" 
+            	id="country" 
+            	placeholder="Enter country name" 
+            	value="<%= post.country %>"/>
+          </div>
+          <div>
+            <label for="description">Description:</label>
+            <input 
+            	type="textarea" 
+            	name="postDescription" 
+            	id="postDescription" 
+            	placeholder="Enter description" 
+            	value="<%= post.postDescription %>"/>
+          </div>
+          <div>
+          	<label for="postPicture">Image:</label>
+    		<input 
+    			id="postPicture" 
+    			type="text" 
+    			name="postPicture" 
+    			placeholder="Enter image URL"
+    			value="<%= post.postPicture %>">
+          </div>
+          <button>Update Post</button>
+        </fieldset>
+      </form>
+
+    </div>
+
+  </div>
 
 <%- include('../partials/footer.ejs') %>

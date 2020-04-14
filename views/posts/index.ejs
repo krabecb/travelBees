@@ -1,24 +1,26 @@
 <%- include('../partials/headerPostIndex.ejs') %>
 
+  <div id="news-feed">
 
-	<h3>Post Index</h3>
+    <ul id="posts">
+        <% posts.forEach((post) => { %>
+          <li>
+            <div id="post-index">
+              <a href="/posts/<%= post.id %>"><%= post.title %></a>
+              <p id="description">
+                <%= post.city %>
+                <%= post.country %>
+              </p>
+              <p>
+                <%= post.date %>  
+              </p>
+              <img src="<%= post.postPicture %>">
+              </br><p>Posted by: <%= post.user.username %></p>
+            </div>
+          </li>
+        <% }) %>    
+    </ul>
 
-  <div id="post-index">
-  <ul id="posts">
-      <% posts.forEach((post) => { %>
-        <li>
-          <a href="/posts/<%= post.id %>"><%= post.title %></a>
-          <p id="description"><%= post.city %>,
-          <%= post.country %>
-          <%= post.description %>
-          <%= post.date %>  
-          </p>
-          <img src="<%= post.postPicture %>">
-          </br>Posted by: <%= post.user.username %>
-        </li>
-      <% }) %>    
-  </ul>
-  </div>
-
+</div>
 
 <%- include('../partials/footer.ejs') %>

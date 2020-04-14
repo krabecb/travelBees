@@ -93,9 +93,15 @@ router.get('/:id/edit', async (req, res, next) => {
 	try {
 		const foundPost = await Post.findById(req.params.id).populate('user')
 		req.session.userId == foundPost.user._id
-		res.render('posts/edit.ejs', {
+
+		if(req.session.username == foundPost.user.username) {
+			res.render('posts/edit.ejs', {
 			post: foundPost,
-		})
+			})
+		} else {
+			req.session.message = "YOU DO NOT HAVE PERMISSION TO ACCESS THIS."
+			res.redirect('/')
+		}
 	} catch(err) {
 		next(err)
 	}
